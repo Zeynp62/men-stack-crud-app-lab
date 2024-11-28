@@ -54,6 +54,12 @@ app.put('/books/:bookId', async (req, res) => {
 
   res.redirect(`/books/${req.params.bookId}`)
 })
+app.get('/books/:bookId/edit', async (req, res) => {
+  const foundBook = await Book.findById(req.params.bookId)
+  res.render('books/edit.ejs', {
+    book: foundBook
+  })
+})
 app.listen(3000, () => {
   console.log('Listening on port 3000')
 })
