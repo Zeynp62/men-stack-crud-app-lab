@@ -1,0 +1,16 @@
+<body>
+  <h1>Edit <%= book.bookName %></h1>
+
+  <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+    <label for="bookName">The book name:</label>
+    <input type="text" name="name" value="<%= book.bookName %>" />
+
+    <label for="author">The author name:</label>
+    <input type="text" name="author" value="<%= book.author %>" />
+
+    <label for="isRead">Done Reading?</label>
+    <input type="checkbox" name="isRead" <%= book.isRead ? 'checked' : '' %> >
+    <button type="submit">Update Book</button>
+  </form>
+  <a href="/books">Back to Books</a>
+</body>
